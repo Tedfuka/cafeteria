@@ -1,0 +1,32 @@
+
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col s12 m6 l3">
+    <!--<a href="/products/<%= product.id %>/reviews/new">-->
+
+      <div class="card">
+
+        <div class="card-image">
+          <!-- <img src="images/sample-1.jpg"> -->
+          <%= image_tag product.avatar %>
+        </div>
+
+        <div class="card-content">
+          <span class="card-title"><%= product.name %></span>
+          <p><%= product.recommendation %></p>
+          <p><%= product.price %></p>
+        </div>
+
+        <div class="row">
+          <div class="col10 push1">
+            <%= link_to 'レビューする', new_product_review_path(product.id), method: :get %>
+          </div>
+        </div>
+
+      </div>
+
+    <!--</a>-->
+
+    </div>
+  <% end %>
+</div>

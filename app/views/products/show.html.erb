@@ -1,0 +1,28 @@
+<div class="body_container">
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-image">
+        <!-- <img src="images/sample-1.jpg"> -->
+        <%= image_tag @product.avatar %>
+      </div>
+      <div class="card-content">
+        <span class="card-title"><%= @product.name %></span>
+        <p><%= @product.recommendation %></p>
+        <p>価格：<%= @product.price %>円</p>
+        <p>評価：<%= @reviews.average(:rate).round(1) %></p>
+        <div class="row">
+          <div class="col10 push1">
+            <%= link_to 'レビューする', new_product_review_path(@product.id), method: :get %>
+          </div>
+        </div>
+      </div>
+    </div>
+<h2>レビュー一覧</h2>
+<% @reviews.each do |review| %>
+<p>評価：<%= review.rate %> | <%= review.comment %></p>
+<hr>
+<% end %>
+  </div>
+</div>
+</div>

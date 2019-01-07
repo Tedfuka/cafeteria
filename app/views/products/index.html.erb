@@ -1,0 +1,53 @@
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col s12 m6 l3">
+
+    <a href="/products/<%= product.id %>" class="top-a">
+
+      <div class="card">
+
+        <div class="card-image">
+          <!-- <img src="images/sample-1.jpg"> -->
+          <%= image_tag product.avatar,class: "avatar" %>
+        </div>
+
+        <div class="card-content">
+          <span class="card-title"><%= product.name %></span>
+          <p>オススメ：<%= product.recommendation %></p>
+          <p>価格：<%= product.price %>円</p>
+          <p>評価：<%= product.reviews.average(:rate).round(1) %></p>
+
+        <div class="star-rating">
+            <div class="star-rating-front" style="width: <%= product.reviews.average(:rate).round(1)*20; %>%">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+        </div>
+
+        <% if user_signed_in? %>
+        <% if current_user.id == 1 %>
+        <div class="row">
+          <div class="col10 push1">
+            <%= link_to '編集', edit_product_path(product.id), method: :get %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col10 push1">
+            <%= link_to '削除', "/products/#{product.id}", method: :delete, data: {confirm: "本当に削除しますか？"}%>
+          </div>
+        </div>
+        <% else %>
+        <br>
+<!--         <div class="row">
+          <div class="col10 push1"> -->
+            <%= link_to 'レビューする', new_product_review_path(product.id), method: :get %>
+<!--           </div>
+        </div> -->
+        <% end %>
+        <% end %>
+
+        </div>
+      </div>
+
+    </a>
+    </div>
+  <% end %>
+</div>
