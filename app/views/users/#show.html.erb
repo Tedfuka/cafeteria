@@ -1,0 +1,23 @@
+
+<div class="row">
+  <% current_user.reviews.each do |review| %> <!--current_userの定義文はどこ？-->
+    <div class="col s12 m6 l3">
+
+      <div class="card">
+
+        <div class="card-image">
+          <%= image_tag review.product.avatar %>
+        </div>
+
+        <div class="card-content">
+          <span class="card-title"><%= review.product.name %></span>
+          <p><%= review.comment %></p>
+        </div>
+
+      </div>
+
+    </div>
+  <% end %>
+</div>
+
+

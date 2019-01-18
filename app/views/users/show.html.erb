@@ -15,14 +15,12 @@
           <span class="card-title"><%= product.name %></span>
           <p>オススメ：<%= product.recommendation %></p>
           <p>価格：<%= product.price %>円</p>
-          <% if product.reviews.present? %>
           <p>評価：<%= product.reviews.average(:rate).round(1) %></p>
 
         <div class="star-rating">
             <div class="star-rating-front" style="width: <%= product.reviews.average(:rate).round(1)*20; %>%">★★★★★</div>
             <div class="star-rating-back">★★★★★</div>
         </div>
-                  <% end %>
 
         <% if user_signed_in? %>
         <% if current_user.id == 1 %>

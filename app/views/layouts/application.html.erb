@@ -23,13 +23,14 @@
     <header>
       <nav>
         <div class="nav-wrapper #304ffe indigo accent-4">
-          <a href="/" class="brand-logo">カフェテリア</a>
+          <a href="/" class="brand-logo"> ⭐️カフェテリア⭐️</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
         <% if current_user.id == 1 %>
           <li><%= link_to "商品登録", new_product_path, class: 'get' %></li>
         <% end %>
+<!--           <li><%= link_to "マイページ", user_path(current_user.id) %></li> -->
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </div>
       <% else %>
