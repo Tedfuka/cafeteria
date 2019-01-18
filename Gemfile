@@ -66,3 +66,6 @@ gem 'sprockets', '3.7.2'
 gem 'devise'
 gem 'mini_magick'
 gem 'materialize-sass'
+group :production do
+  gem 'rails_12factor'
+end
