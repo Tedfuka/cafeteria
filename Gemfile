@@ -66,6 +66,7 @@ gem 'sprockets', '3.7.2'
 gem 'devise'
 gem 'mini_magick'
 gem 'materialize-sass'
+# gem 'aws-sdk-s3', require: false
 group :production do
   gem 'rails_12factor'
 end
