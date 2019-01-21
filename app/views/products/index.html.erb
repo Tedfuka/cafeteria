@@ -8,7 +8,9 @@
 
         <div class="card-image">
           <!-- <img src="images/sample-1.jpg"> -->
+<% if product.avatar.attached? %>
           <%= image_tag product.avatar,class: "avatar" %>
+<% end %>
         </div>
 
         <div class="card-content">

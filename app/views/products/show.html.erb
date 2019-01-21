@@ -4,7 +4,9 @@
     <div class="card">
       <div class="card-image">
         <!-- <img src="images/sample-1.jpg"> -->
+<% if @product.avatar.attached? %>
         <%= image_tag @product.avatar %>
+<% end %>
       </div>
       <div class="card-content">
         <span class="card-title"><%= @product.name %></span>

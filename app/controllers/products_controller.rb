@@ -17,9 +17,7 @@ class ProductsController < ApplicationController
 
   def destroy
     product = Product.find(params[:id])
-    #if tweet.user_id == current_user.id
-      product.destroy
-    #end
+    product.destroy
   end
 
   def show
@@ -33,9 +31,7 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find(params[:id])
-    #if tweet.user_id == current_user.id
     product.update(product_params)
-    #end
   end
 
   private
