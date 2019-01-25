@@ -1,6 +1,6 @@
 <div class="row">
   <% @products.each do |product| %>
-    <div class="col s12 m6 l3">
+    <div class="col s12 m6 l4">
 
     <a href="/products/<%= product.id %>" class="top-a">
 
@@ -24,20 +24,27 @@
             <div class="star-rating-front" style="width: <%= product.reviews.average(:rate).round(1)*20; %>%">★★★★★</div>
             <div class="star-rating-back">★★★★★</div>
         </div>
+          <% else  %>
+
+          <p>評価：未登録</p>
+
+        <div class="star-rating">
+            <div class="star-rating-front" style="width: 0">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+        </div>
+
                   <% end %>
 
         <% if user_signed_in? %>
         <% if current_user.id == 1 %>
-        <div class="row">
-          <div class="col10 push1">
+        <div class="edit_btn center">
+        <div class="btn btn_text">
             <%= link_to '編集', edit_product_path(product.id), method: :get %>
-          </div>
         </div>
-        <div class="row">
-          <div class="col10 push1">
+        <div class="btn btn_text">
             <%= link_to '削除', "/products/#{product.id}", method: :delete, data: {confirm: "本当に削除しますか？"}%>
-          </div>
         </div>
+      </div>
         <% else %>
         <br>
 <!--         <div class="row">

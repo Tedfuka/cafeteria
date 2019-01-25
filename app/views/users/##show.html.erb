@@ -51,3 +51,7 @@
     </div>
   <% end %>
 </div>
+
+            <% current_user.reviews.each do |review| %>
+            <p><%= review.comment %> <%= review.updated_at %></p>
+            <% end %>

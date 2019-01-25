@@ -1,5 +1,6 @@
 
 <div class="row">
+
   <% @products.each do |product| %> <!--current_userの定義文はどこ？-->
     <div class="col s12 m6 l3">
 
@@ -11,7 +12,8 @@
 
         <div class="card-content">
           <span class="card-title"><%= product.name %></span>
-            <% product.reviews.where(user_id: current_user).each do |review| %>  <!-- productとreviewの順番の意味 -->
+            <!-- <% reviews = current_user.reviews.uniq %> -->
+            <% @reviews.each do |review| %>
             <p><%= review.comment %> <%= review.updated_at %></p>
             <% end %>
         </div>
