@@ -1,8 +1,64 @@
-
 <div class="row">
+  <% @products.each do |product| %>
+    <div class="col s12 m6 l4">
 
-  <% @products.each do |product| %> <!--current_userの定義文はどこ？-->
-    <div class="col s12 m6 l3">
+    <a href="/products/<%= product.id %>" class="top-a">
+
+      <div class="card">
+
+        <div class="card-image">
+          <!-- <img src="images/sample-1.jpg"> -->
+<% if product.avatar.attached? %>
+          <%= image_tag product.avatar,class: "avatar" %>
+<% end %>
+        </div>
+
+        <div class="card-content">
+          <span class="card-title"><%= product.name %></span>
+          <p>オススメ：<%= product.recommendation %></p>
+          <p>価格：<%= product.price %>円</p>
+          <% if product.reviews.present? %>
+          <p>評価：<%= product.reviews.average(:rate).round(1) %></p>
+
+        <div class="star-rating">
+            <div class="star-rating-front" style="width: <%= product.reviews.average(:rate).round(1)*20; %>%">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+        </div>
+          <% else  %>
+
+          <p>評価：未登録</p>
+
+        <div class="star-rating">
+            <div class="star-rating-front" style="width: 0">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+        </div>
+
+                  <% end %>
+
+
+        <br>
+<!--         <div class="row">
+          <div class="col10 push1"> -->
+            <%= link_to 'レビューする', new_product_review_path(product.id), method: :get %>
+<!--           </div>
+        </div> -->
+
+
+
+        </div>
+      </div>
+
+    </a>
+    </div>
+  <% end %>
+</div>
+
+
+
+<!-- <div class="row">
+
+  <% @products.each do |product| %>
+    <div class="col s12 m6 l4">
 
       <div class="card">
 
@@ -12,7 +68,7 @@
 
         <div class="card-content">
           <span class="card-title"><%= product.name %></span>
-            <!-- <% reviews = current_user.reviews.uniq %> -->
+
             <% @reviews.each do |review| %>
             <p><%= review.comment %> <%= review.updated_at %></p>
             <% end %>
@@ -25,3 +81,4 @@
 </div>
 
 
+ -->

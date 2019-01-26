@@ -7,17 +7,17 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @product = Product.new #予め定義されているnewメソッド
   end
 
   def create
     product = Product.create(product_params)
-    redirect_to products_path
+    redirect_to products_path #rake routesで確認、prefixに_pathをつける
   end
 
   def destroy
     product = Product.find(params[:id])
-    product.destroy
+    product.destroy #予め定義されているdestroyメソッド
   end
 
   def show
