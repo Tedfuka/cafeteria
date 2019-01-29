@@ -12,8 +12,17 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 //= require jquery
 //= require_tree .
 
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
 
+// (function() {
+//   this.App || (this.App = {});
+
+//   App.cable = ActionCable.createConsumer();
+
+// }).call(this);
