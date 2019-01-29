@@ -48,3 +48,15 @@
   width: 500px;
   margin: 30px auto 0;
 }
+
+@media screen and (min-width:0px){
+  font-size: 15px; /*0px以上で適用する内容*/
+}
+
+@media screen and (min-width:300px){
+  font-size: 20px; /*300px以上で適用する内容*/
+}
+
+@media screen and (min-width:600px){
+  font-size: 25px; /*600px以上で適用する内容*/
+}
