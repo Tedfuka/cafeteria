@@ -16,9 +16,7 @@
 //= require jquery
 //= require_tree .
 
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+$(".button-collapse").sideNav();
 
 // (function() {
 //   this.App || (this.App = {});
